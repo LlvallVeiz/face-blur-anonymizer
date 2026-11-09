@@ -1,0 +1,6 @@
+# Node dependencies (install with: npm install)
+node_modules/
+
+# OS / editor artefacts
+.DS_Store
+*.log

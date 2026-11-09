@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Face Blur Anonymizer — blur faces for photo privacy</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Face Blur Anonymizer</h1>
+      <p class="tagline">Detect faces with a Haar cascade (OpenCV.js) and blur them
+        with a Gaussian filter — before a photo ever leaves your computer.
+        Everything runs locally in your browser; no image is uploaded anywhere.</p>
+      <p id="status" role="status">Loading OpenCV.js…</p>
+    </header>
+
+    <section class="controls" aria-label="Controls">
+      <div class="control-row">
+        <label for="fileInput">Photo</label>
+        <input type="file" id="fileInput" accept="image/*">
+        <button id="sampleBtn" type="button">Load sample photo (Lena)</button>
+      </div>
+      <div class="control-row">
+        <label for="strength">Blur strength <output id="strengthOut">60%</output></label>
+        <input type="range" id="strength" min="0" max="100" value="60">
+      </div>
+      <div class="control-row">
+        <label for="padding">Face padding <output id="paddingOut">10%</output></label>
+        <input type="range" id="padding" min="0" max="50" value="10">
+      </div>
+      <div class="control-row">
+        <label class="checkbox"><input type="checkbox" id="showBoxes" checked>
+          Show detection boxes</label>
+        <button id="anonymizeBtn" type="button" disabled>Anonymize faces</button>
+        <button id="downloadBtn" type="button" disabled>Download blurred image</button>
+      </div>
+    </section>
+
+    <section class="panes" aria-label="Before and after">
+      <figure>
+        <figcaption>Original</figcaption>
+        <canvas id="originalCanvas" width="512" height="512"></canvas>
+      </figure>
+      <figure>
+        <figcaption>Anonymized</figcaption>
+        <div class="canvas-wrap">
+          <canvas id="resultCanvas" width="512" height="512"></canvas>
+          <canvas id="overlayCanvas" width="512" height="512"></canvas>
+        </div>
+      </figure>
+    </section>
+
+    <section id="report" aria-label="Detection report" hidden>
+      <h2>Detection report</h2>
+      <pre id="reportText"></pre>
+    </section>
+
+    <footer>
+      <p>Face detection: Haar cascade (<code>haarcascade_frontalface_default.xml</code>,
+        Viola &amp; Jones 2001) via OpenCV.js 4.9.0. Blur: Gaussian filter.
+        Sample photo: <code>lena.jpg</code> from the OpenCV samples — see README
+        for the source and the licensing note.</p>
+    </footer>
+  </main>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

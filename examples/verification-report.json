@@ -1,0 +1,40 @@
+{
+  "method": "native OpenCV (cv2 4.10.0) \u2014 same cascade file, same parameters as the browser app (app.js)",
+  "sampleImage": "assets/lena.jpg (512x512, from opencv/opencv samples/data/lena.jpg)",
+  "imageSize": [
+    512,
+    512
+  ],
+  "facesDetected": 1,
+  "faces": [
+    {
+      "x": 216,
+      "y": 202,
+      "width": 174,
+      "height": 174
+    }
+  ],
+  "paddedFaces": [
+    {
+      "x": 199,
+      "y": 185,
+      "width": 208,
+      "height": 208
+    }
+  ],
+  "blurStrength": 0.6,
+  "padding": 0.1,
+  "kernelSizes": [
+    61
+  ],
+  "meanAbsDiffInside": [
+    19.13
+  ],
+  "meanAbsDiffInsideAvg": 19.13,
+  "meanAbsDiffOutside": 0.0,
+  "checks": {
+    "faceDetected": true,
+    "facePixelsChanged": true,
+    "outsidePixelsUnchanged": true
+  }
+}
